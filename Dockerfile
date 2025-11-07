@@ -1,49 +1,49 @@
-# Use Python 3.10 slim image for smaller size
-FROM python:3.10-slim
+FROM python:3.10
 
-# Set working directory
 WORKDIR /app
 
-# Install system dependencies for OpenCV, dlib, and face_recognition
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
 RUN apt-get update && apt-get install -y \
-    build-essential \
-    cmake \
-    libopencv-dev \
-    libboost-all-dev \
-    libgtk-3-dev \
-    libavcodec-dev \
-    libavformat-dev \
-    libswscale-dev \
-    libv4l-dev \
-    libxvidcore-dev \
-    libx264-dev \
-    libjpeg-dev \
-    libpng-dev \
-    libtiff-dev \
-    gfortran \
-    openexr \
-    libatlas-base-dev \
-    python3-dev \
+    libglib2.0-0 \
+    libsm6 \
+    libxrender1 \
+    libxext6 \
+    libgl1-mesa-glx \
+    wget \
     && rm -rf /var/lib/apt/lists/*
- 
-# Copy requirements first (for better caching)
+
+RUN pip install --upgrade pip
+
+RUN pip install --no-cache-dir \
+    flask==3.1.2 \
+    flask-cors==6.0.1 \
+    gunicorn==23.0.0 \
+    numpy \
+    pillow
+
+RUN pip install --no-cache-dir opencv-python-headless
+
+RUN pip install --no-cache-dir \
+    dlib \
+    face-recognition \
+    face_recognition_models
+
+RUN pip install --no-cache-dir \
+    tensorflow \
+    deepface \
+    keras
+
 COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt || true
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy entire project
 COPY . .
 
-# Create necessary directories
 RUN mkdir -p data/registered_faces data/group_scans data/unpaid_captures
 
-# Expose port (Render will set PORT env variable)
 EXPOSE 5000
 
-# Set environment variables
-ENV FLASK_APP=backend/app.py
-ENV PYTHONUNBUFFERED=1
-
-# Run the Flask app (Render will provide PORT)
-CMD gunicorn --bind 0.0.0.0:${PORT:-5000} --workers 2 --timeout 120 backend.app:app
+CMD gunicorn --bind 0.0.0.0:$PORT --workers 1 --timeout 180 backend.app:app
