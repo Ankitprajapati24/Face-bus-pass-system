@@ -1,0 +1,121 @@
+{
+  "students": {
+    "STU001": {
+      "name": "Parth Saini",
+      "roll_number": "0818ME221009",
+      "department": "EC",
+      "email": "0818me221009@college.edu",
+      "phone": "",
+      "fee_status": "paid",
+      "fee_paid_date": "2025-11-03",
+      "valid_until": "2025-12-31",
+      "face_registered": true,
+      "registered_date": "2025-11-03 12:21:42"
+    },
+    "STU002": {
+      "name": "Samarth Chawla",
+      "roll_number": "0818CS2412",
+      "department": "CS",
+      "email": "0818cs2412@college.edu",
+      "phone": "",
+      "fee_status": "paid",
+      "fee_paid_date": "2025-11-03",
+      "valid_until": "2025-12-31",
+      "face_registered": true,
+      "registered_date": "2025-11-03 12:24:15"
+    },
+    "STU003": {
+      "name": "Ankit",
+      "roll_number": "33",
+      "department": "CSE",
+      "email": "33@college.edu",
+      "phone": "",
+      "fee_status": "paid",
+      "fee_paid_date": "2025-11-06",
+      "valid_until": "2025-12-31",
+      "face_registered": true,
+      "registered_date": "2025-11-06 23:10:46"
+    }
+  },
+  "access_logs": [
+    {
+      "timestamp": "2025-10-29T15:47:05.948630",
+      "student_id": "UNKNOWN",
+      "name": "Unknown",
+      "status": "unrecognized",
+      "confidence": 0
+    },
+    {
+      "timestamp": "2025-10-29T15:48:05.579898",
+      "student_id": "STU001",
+      "name": "PARTH",
+      "status": "allowed",
+      "confidence": 65.99
+    },
+    {
+      "timestamp": "2025-10-29T15:55:31.825747",
+      "student_id": "STU001",
+      "name": "PARTH",
+      "status": "allowed",
+      "confidence": 72.48
+    },
+    {
+      "timestamp": "2025-10-29T15:57:03.729221",
+      "student_id": "STU001",
+      "name": "PARTH",
+      "status": "allowed",
+      "confidence": 59.32
+    },
+    {
+      "timestamp": "2025-10-29T16:02:06.469028",
+      "student_id": "STU001",
+      "name": "PARTH",
+      "status": "allowed",
+      "confidence": 89.98
+    },
+    {
+      "timestamp": "2025-10-30T12:46:31.844695",
+      "student_id": "UNKNOWN",
+      "name": "Unknown",
+      "status": "unrecognized",
+      "confidence": 0
+    },
+    {
+      "timestamp": "2025-10-30T12:47:27.855343",
+      "student_id": "STU001",
+      "name": "PARTH",
+      "status": "allowed",
+      "confidence": 73.7
+    },
+    {
+      "timestamp": "2025-10-30T12:48:41.397997",
+      "student_id": "UNKNOWN",
+      "name": "Unknown",
+      "status": "unrecognized",
+      "confidence": 0
+    }
+  ],
+  "unpaid_captures": [
+    {
+      "timestamp": "2025-10-29T15:47:05.955698",
+      "student_id": "UNKNOWN",
+      "name": "Unknown",
+      "filename": "unknown_20251029_154705.jpg",
+      "filepath": "data/unpaid_captures/unknown_20251029_154705.jpg"
+    },
+    {
+      "timestamp": "2025-10-30T12:46:31.853865",
+      "student_id": "UNKNOWN",
+      "name": "Unknown",
+      "filename": "unknown_20251030_124631.jpg",
+      "filepath": "data/unpaid_captures/unknown_20251030_124631.jpg"
+    },
+    {
+      "timestamp": "2025-10-30T12:48:41.397997",
+      "student_id": "UNKNOWN",
+      "name": "Unknown",
+      "filename": "unknown_20251030_124841.jpg",
+      "filepath": "data/unpaid_captures/unknown_20251030_124841.jpg"
+    }
+  ]
+}

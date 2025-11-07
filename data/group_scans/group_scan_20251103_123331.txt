@@ -1,0 +1,22 @@
+============================================================
+GROUP SCAN REPORT
+============================================================
+Timestamp: 2025-11-03 12:33:31
+Total Faces: 2
+Paid: 2
+Unpaid/Unknown: 0
+
+============================================================
+INDIVIDUAL RESULTS:
+============================================================
+
+1. [PAID]
+   Name: Samarth Chawla
+   Student ID: STU002
+   Confidence: 66.5%
+
+2. [PAID]
+   Name: Parth Saini
+   Student ID: STU001
+   Confidence: 87.9%
+
